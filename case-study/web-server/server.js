@@ -17,9 +17,12 @@ const init = async () => {
 
     await server.start();
     console.log(`Server berjalan pada ${server.info.uri}`);
+    // console.log(process.env.NODE_ENV)
 
     // Menentukan routes berdasarkan array yang dipanggil di file lain
     server.route(routes)
+
+    // server.route([])
 
 }
 

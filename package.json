@@ -5,8 +5,8 @@
   "main": "salary.js",
   "scripts": {
     "start": "node case-study/web-server/server.js",
-    "dev": "nodemon case-study/web-server/server.js",
-    "lint": "eslint case-study/web-server/server.js"
+    "dev": "SET NODE_ENV=development& nodemon case-study/web-server/server.js",
+    "dev2": "SET NODE_ENV=development& nodemon case-study/book-shelf/server.js"
   },
   "author": "",
   "license": "ISC",

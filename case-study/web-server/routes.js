@@ -11,7 +11,10 @@ const routes = [
             if (result) {
                 const res = h.response({
                     status: 'success',
-                    messaage: 'Catatan berhasil diperbarui',
+                    message: 'Catatan berhasil diperbarui',
+                    data: {
+                        noteid: result
+                    }
                 })
 
                 res.code(201)
@@ -21,6 +24,33 @@ const routes = [
                 const res = h.response({
                     status: 'fail',
                     message: 'Gagal menambahkan note'
+                })
+
+                res.code(400)
+                return res
+            }
+        }
+    },
+    {
+        method: 'PUT',
+        path: '/notes/{id}',
+        handler: (req, h) => {
+            const { id } = req.params
+            const result = editNote(id, req)
+
+            if (result) {
+                const res = h.response({
+                    status: 'success',
+                    messaage: 'Catatan berhasil diperbarui',
+                })
+
+                res.code(201)
+                return res
+            }
+            else {
+                const res = h.response({
+                    status: 'fail',
+                    message: 'Gagal memperbarui note'
                 })
 
                 res.code(400)
